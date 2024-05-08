@@ -12,7 +12,7 @@ const OpenWeatherApiDataContainer = () => {
                     {
                         params: {
                             q: 'roskilde,dk',
-                            appid: '73d80bb3d469a64fa7b454a4f2bdd907',
+                            appid: Secrets.OPEN_WEATHER_API_KEY,
                             units: 'metric',
                             cnt: 5, // Limit to 5 responses
                         },
