@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
+
 const OpenWeatherApiDataContainer = () => {
     const [forecastData, setForecastData] = useState([]);
 
@@ -12,7 +14,7 @@ const OpenWeatherApiDataContainer = () => {
                     {
                         params: {
                             q: 'roskilde,dk',
-                            appid: Secrets.OPEN_WEATHER_API_KEY,
+                            appid: process.env.REACT_APP_OPENWEATHERMAP_API_KEY,
                             units: 'metric',
                             cnt: 5, // Limit to 5 responses
                         },
