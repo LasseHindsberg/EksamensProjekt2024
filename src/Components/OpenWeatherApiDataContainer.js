@@ -15,11 +15,13 @@ const OpenWeatherApiDataContainer = () => {
                         params: {
                             q: 'roskilde,dk',
                             appid: process.env.REACT_APP_OPENWEATHERMAP_API_KEY,
-                            units: 'metric',
                             cnt: 5, // Limit to 5 responses
+                            units: 'metric', // Get data in metric units
                         },
+                        
                     }
                 );
+                console.log('Weather data:', response.data.list)
                 setForecastData(response.data.list);
             } catch (error) {
                 console.error('Error fetching weather data:', error);
@@ -35,9 +37,13 @@ const OpenWeatherApiDataContainer = () => {
     return (
         <div>
             <h1>Hourly Weather Forecast for Roskilde, DK</h1>
+            
             <ul>
                 {forecastData.map((forecast) => (
-                    <li key={forecast.dt}>{forecast.main.temp}°C - {forecast.weather[0].description}</li>
+                    <>
+                    <img src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`} alt="Weather icon" />
+                    <li key={forecast.dt}>Current Temperature: {forecast.main.temp}°C - {forecast.weather[0].description}</li>
+                    </>
                 ))}
             </ul>
         </div>
