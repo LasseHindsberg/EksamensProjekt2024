@@ -18,6 +18,7 @@ const OpenWeatherApiDataContainer = () => {
                             units: 'metric', // ensures the data temperature is in Celsius
                             cnt: 5, // Limit to 5 responses, in our case the next 5 hours
                         },
+                        
                     }
                 );
                 // sets the api response to our state.
@@ -41,9 +42,13 @@ const OpenWeatherApiDataContainer = () => {
     return (
         <div className="apiContentWrapper">
             <h1>Hourly Weather Forecast for Roskilde, DK</h1>
+            
             <ul>
                 {forecastData.map((forecast) => (
-                    <li key={forecast.dt}>{forecast.main.temp}°C - {forecast.weather[0].description}</li>
+                    <>
+                    <img src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`} alt="Weather icon" />
+                    <li key={forecast.dt}>Current Temperature: {forecast.main.temp}°C - {forecast.weather[0].description}</li>
+                    </>
                 ))}
             </ul>
         </div>
