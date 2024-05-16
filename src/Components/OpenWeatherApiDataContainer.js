@@ -12,28 +12,34 @@ const OpenWeatherApiDataContainer = () => {
                 const response = await axios.get(
                     'https://api.openweathermap.org/data/2.5/forecast',
                     {
-                        params: {
-                            q: 'roskilde,dk',
-                            appid: process.env.REACT_APP_OPENWEATHERMAP_API_KEY,
-                            units: 'metric',
-                            cnt: 5, // Limit to 5 responses
+                        params: { // defining parameters that are sent with the fetch call
+                            q: 'roskilde,dk', // City and country code
+                            appid: process.env.REACT_APP_OPENWEATHERMAP_API_KEY, // secret API key stored in a local environment file
+                            units: 'metric', // ensures the data temperature is in Celsius
+                            cnt: 5, // Limit to 5 responses, in our case the next 5 hours
                         },
                     }
                 );
+                // sets the api response to our state.
                 setForecastData(response.data.list);
+                // logs the response for trouble shooting.
+                console.log(response.data.list)
+                // in case of errors: catch and log them.
             } catch (error) {
                 console.error('Error fetching weather data:', error);
             }
         };
-
+        // runs fetch function
         fetchData();
-        const interval = setInterval(fetchData, 600000); // Fetch data every 10 minutes
+        // sets an interval to run the fetch function every 10 minutes
+        const interval = setInterval(fetchData, 600000);
 
+        // cleanup function to clear the interval when the component is unmounted
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <div>
+        <div className="apiContentWrapper">
             <h1>Hourly Weather Forecast for Roskilde, DK</h1>
             <ul>
                 {forecastData.map((forecast) => (
