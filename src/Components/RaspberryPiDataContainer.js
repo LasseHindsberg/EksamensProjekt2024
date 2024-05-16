@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-/**
- * Renders a container component that fetches and displays Raspberry Pi data.
- *
- * @returns {JSX.Element} The rendered RaspberryPiDataContainer component.
- */
 const RaspberryPiDataContainer = () => {
     const [data, setData] = useState([]);
 
@@ -24,7 +19,7 @@ const RaspberryPiDataContainer = () => {
 
     return (
         <div>
-            <h1>Raspberry Pi Data</h1>
+            <h1>Latest Weather Sensor Data</h1>
             <ul>
                 {data.map((item, index) => (
                     <li key={index}>{item}</li>
