@@ -6,9 +6,8 @@ import RaspberryPiDataContainer from './Components/RaspberryPiDataContainer';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Weather App + car Crash handler</h1> 
-      <p>weather data:</p>
+    <div className="pageWrapper">
+      <h1>Dashboard</h1>
       <RaspberryPiDataContainer />
       <OpenWeatherApiDataContainer />
     </div>
