@@ -7,6 +7,21 @@
   font-weight: normal;
 }
 
+.refreshBtn {
+  background-color: hsla(160, 100%, 37%, 1);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+  justify-self: end;
+  
+}
+.refreshBtn:hover {
+  background-color: hsla(160, 100%, 37%, 0.8);
+
+}
 a,
 .green {
   text-decoration: none;
@@ -30,6 +45,17 @@ a,
   #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'header header'
+                         'local remote';
     padding: 0 2rem;
+  }
+  .information {
+    grid-area: header;
+  }
+  .localWeatherContainer {
+    grid-area: local;
+  }
+  .remoteWeatherContainer {
+    grid-area: remote;
   }
 }
