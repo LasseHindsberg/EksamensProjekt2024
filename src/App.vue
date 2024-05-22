@@ -1,13 +1,15 @@
 <script setup>
+import LocalDataApi from './components/LocalDataApi.vue';
 import OpenWeatherApi from './components/OpenWeatherApi.vue';
 </script>
 
 <template>
-  <div class="container">
+  <div class="information">
+    <h1>Weather Information</h1>
+    <p>Below is the weather information from the OpenWeatherMap API and the local JSON file:</p>
+  </div>
+  <div class="wrapper">
+    <LocalDataApi />
     <OpenWeatherApi />
   </div>
 </template>
-
-<style scoped>
-
-</style>
