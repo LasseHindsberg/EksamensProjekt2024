@@ -8,8 +8,6 @@ import OpenWeatherApi from './components/OpenWeatherApi.vue';
     <h1>Weather Information</h1>
     <p>Below is the weather information from the OpenWeatherMap API and the local JSON file:</p>
   </div>
-  <div class="wrapper">
     <LocalDataApi />
     <OpenWeatherApi />
-  </div>
 </template>
