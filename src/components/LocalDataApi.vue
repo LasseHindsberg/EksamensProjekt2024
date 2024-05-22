@@ -1,13 +1,3 @@
-<template>
-    <div>
-        <ul>
-            <li v-for="(item, index) in dataList" :key="index">
-                Temperature: {{ item.temperature }}°C, Time: {{ item.time }}, Humidity: {{ item.humidity }}%
-            </li>
-        </ul>
-    </div>
-</template>
-
 <script setup>
 import { ref } from 'vue';
 import Axios from 'axios';
@@ -16,6 +6,7 @@ import Axios from 'axios';
 const dataList = ref([]);
 
 // Fetch data from local JSON file
+
 Axios.get('/src/data/data.json')
     .then(response => {
         dataList.value = response.data;
@@ -25,3 +16,22 @@ Axios.get('/src/data/data.json')
     });
     
 </script>
+
+<template>
+    <div class="localWeatherContainer">
+        <h1>Local Sensor</h1>
+        <ul v-for="(item, index) in dataList" :key="index">
+            <li>
+                <p>Temperature: {{  item.temperature }}°C </p>
+            </li>
+            <li>
+                <p>Time: {{ item.time }}</p>
+            </li>
+            <li>
+                <p>Humidity: {{ item.humidity }}%</p>
+            </li>
+        </ul>
+    </div>
+</template>
+
+
