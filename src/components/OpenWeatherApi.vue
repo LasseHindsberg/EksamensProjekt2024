@@ -40,8 +40,10 @@ fetchData();
 
 
 <template>
-    <div>
+    <div class="remoteWeatherContainer">
         <h1>OpenWeatherMap API</h1>
+        <button class="refreshBtn" @click="fetchData">Refresh Data</button>
+        
       <ul v-for="(data,index) in weatherData" :key="index">
         <h3> Time: {{ data.time }}</h3>
         <li>
