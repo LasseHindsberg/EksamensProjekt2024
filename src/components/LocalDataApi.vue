@@ -14,23 +14,21 @@ Axios.get('/src/data/data.json')
     .catch(error => {
         console.error('Error fetching data:', error);
     });
-    // Function to calculate the weather
-    function calculateWeather(temperature, humidity) {
+
+    // NEEDS DOING !!!!!!!!!
+    // Function to calculate the probability of accidents based on temperature and humidity
+    function calculateProbability(temperature, humidity) {
         if (temperature > 25 && humidity > 70) {
-            return 'Hot and humid';
+            return 'Low chance of accidents, High temperature and humidity';
         } else if (temperature > 25 && humidity <= 70) {
-            return 'Hot';
+            return 'low chance of accidents, High temperature and low humidity';
         } else if (temperature <= 25 && humidity > 70) {
             return 'Humid';
         } else {
-            return 'Moderate';
+            return 'Low chance of accident';
         }
     }
 
-    // Call the calculateWeather function for each item in the dataList
-    dataList.value.forEach(item => {
-        item.weather = calculateWeather(item.temperature, item.humidity);
-    });
 </script>
 
 <template>
@@ -44,6 +42,9 @@ Axios.get('/src/data/data.json')
 
             <li>
                 <p>Humidity: {{ item.humidity }}%</p>
+            </li>
+            <li>
+                <p> Chance of accidents: {{ calculateProbability(item.temperature, item.humidity)}}</p>
             </li>
             <br>
         </ul>
