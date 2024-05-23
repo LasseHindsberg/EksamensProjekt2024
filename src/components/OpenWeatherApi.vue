@@ -45,15 +45,15 @@ fetchData();
         
         
       <ul v-for="(data,index) in weatherData" :key="index">
-        <h3> Time: {{ data.time }}</h3>
+        <h3 class="RemoteTime"> Time: {{ data.time }}</h3>
         <li>
-          <p>Temperature: {{ data.temperature }}</p>
+          <p class="RemoteTemperature">Temperature: {{ data.temperature }}</p>
         </li>
         <li>
-          <p>Humidity: {{ data.humidity }}</p>
+          <p class="RemoteHumidity">Humidity: {{ data.humidity }}</p>
         </li>
         <li>
-          <p>Weather: {{ data.weather }}</p>
+          <p class="RemoteWeather">Weather: {{ data.weather }}</p>
         </li>
         <br>
       </ul>
